@@ -13,9 +13,9 @@ jobs:
     env:
       SITE_URL: ${{ vars.SITE_URL || 'https://insidecryptonews.github.io/compara-facil' }}
       PUBLICATION_READY: ${{ vars.PUBLICATION_READY }}
-      LEGAL_NAME: ${{ vars.LEGAL_NAME }}
-      LEGAL_ADDRESS: ${{ vars.LEGAL_ADDRESS }}
-      LEGAL_EMAIL: ${{ vars.LEGAL_EMAIL }}
+      LEGAL_NAME: ${{ secrets.LEGAL_NAME }}
+      LEGAL_ADDRESS: ${{ secrets.LEGAL_ADDRESS }}
+      LEGAL_EMAIL: ${{ secrets.LEGAL_EMAIL }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
