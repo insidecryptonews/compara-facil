@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f4ef">
+  <title>Compara Fácil — compara productos a tu manera</title>
+  <meta name="description" content="Busca productos en Amazon y compáralos a tu manera. Añade los que te interesan y pon frente a frente precio y características.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Compara Fácil — compara productos a tu manera">
+  <meta property="og:description" content="Tú eliges qué productos comparar. Sin rankings patrocinados ni precios inventados.">
+  <link rel="canonical" href="">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="site-config.js"></script>
+  <script defer src="ads.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Compara Fácil, inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>compara<span class="brand-light">fácil</span></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="#como-funciona">Cómo funciona</a><a class="nav-compare" href="#comparador">Mi comparativa <span id="nav-count">0</span></a></nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div><div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> TU DECISIÓN, CON MÁS CLARIDAD</p>
+        <h1 id="hero-title">Compara lo que<br><span>tú quieras.</span></h1>
+        <p class="hero-copy">Encuentra productos, ponlos frente a frente y decide con lo que de verdad te importa.</p>
+        <form id="search-form" class="search-form" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+          <label class="visually-hidden" for="product-search">Buscar productos en Amazon</label>
+          <input id="product-search" name="q" type="search" placeholder="Busca cualquier producto…" autocomplete="off" maxlength="120">
+          <button type="submit">Buscar en Amazon <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="search-hint">La búsqueda se abre en Amazon.es. Elige una ficha y añade sus datos aquí; tú controlas la comparativa.</p>
+        <div class="popular-searches" aria-label="Búsquedas de ejemplo"><span>Prueba:</span><button type="button" data-query="auriculares bluetooth">Auriculares</button><button type="button" data-query="cafetera espresso">Cafeteras</button><button type="button" data-query="portátil 14 pulgadas">Portátiles</button></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-glow"></div>
+        <div class="float-card float-card-back"><span class="float-icon violet">✳</span><span class="float-line long"></span><span class="float-line short"></span><span class="float-chip"></span></div>
+        <div class="float-card float-card-front"><div class="float-card-head"><span class="float-icon mint">↔</span><span class="float-label">TU COMPARATIVA</span><span class="float-dots">···</span></div><div class="float-product-row"><span class="product-tile tile-one">A</span><span><b>Producto A</b><small>El que te interesa</small></span><span class="check-mark">✓</span></div><div class="float-product-row"><span class="product-tile tile-two">B</span><span><b>Producto B</b><small>La alternativa</small></span><span class="check-mark">✓</span></div><div class="float-divider"></div><div class="float-bottom"><span>Precio · funciones · lo tuyo</span><span class="float-arrow">↗</span></div></div>
+        <div class="visual-note"><span>✦</span> Sin rankings pagados</div>
+      </div>
+    </section>
+
+    <aside id="ad-placement" class="ad-placement" aria-label="Publicidad" hidden>
+      <span class="ad-label">PUBLICIDAD</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </aside>
+
+    <section class="how-strip" id="como-funciona" aria-label="Cómo funciona">
+      <div class="how-step"><span class="step-number">01</span><div><h2>Busca</h2><p>Encuentra el producto que tienes en mente.</p></div></div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="how-step"><span class="step-number">02</span><div><h2>Añade</h2><p>Guarda los productos que quieres enfrentar.</p></div></div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="how-step"><span class="step-number">03</span><div><h2>Decide</h2><p>Compara precio y detalles en una sola vista.</p></div></div>
+    </section>
+
+    <section class="workspace" id="comparador" aria-labelledby="workspace-title">
+      <div class="workspace-head">
+        <div><p class="eyebrow dark-eyebrow">TU ESPACIO DE DECISIÓN</p><h2 id="workspace-title">Tu comparativa <span id="workspace-count">(0)</span></h2><p class="workspace-subtitle">Añade hasta 4 productos y compara lo que te importa.</p></div>
+        <button id="add-product-button" class="add-button" type="button"><span>＋</span> Añadir producto</button>
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        <div class="empty-illustration" aria-hidden="true"><span class="empty-card card-a">A</span><span class="empty-card card-b">B</span><span class="empty-plus">＋</span></div>
+        <h3>Tu comparativa empieza aquí</h3>
+        <p>Busca un producto arriba y añade los que quieras comparar. Tú decides los criterios.</p>
+        <button class="text-action" type="button" data-open-product>Añadir un producto manualmente <span>→</span></button>
+      </div>
+
+      <div id="product-list" class="product-list" aria-live="polite"></div>
+      <div id="comparison-section" class="comparison-section" hidden>
+        <div class="table-heading"><div><p class="eyebrow dark-eyebrow">VISTA LADO A LADO</p><h3>Lo que cambia entre ellos</h3></div><button id="clear-products" class="clear-button" type="button">Vaciar comparativa</button></div>
+        <div id="comparison-table" class="comparison-table-wrap"></div>
+      </div>
+      <p id="workspace-message" class="workspace-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="trust-panel">
+      <div class="trust-icon" aria-hidden="true">✳</div><div><h2>La elección es tuya.</h2><p>Compara tus propios criterios. No vendemos productos ni cobramos por colocar una marca por encima de otra.</p><p id="affiliate-disclosure" class="affiliate-disclosure">Esta web puede obtener una comisión por compras que cumplan las condiciones de Amazon. Solo se activarán enlaces etiquetados cuando el programa esté configurado.</p></div><div class="trust-stamp"><span>CLARO</span><span>Y</span><span>DIRECTO</span></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="./"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>compara<span class="brand-light">fácil</span></span></a>
+    <p>Menos vueltas. Mejores decisiones.</p>
+    <nav aria-label="Información"><a href="aviso-legal/">Aviso legal</a><a href="privacidad/">Privacidad</a><a href="afiliacion/">Afiliación</a></nav>
+  </footer>
+
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="dialog-title">
+    <form id="product-form" method="dialog">
+      <div class="dialog-top"><div><p class="eyebrow dark-eyebrow">AÑADIR A LA COMPARATIVA</p><h2 id="dialog-title">Añade un producto</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Cerrar">×</button></div>
+      <p class="dialog-intro">Abre Amazon desde la búsqueda, copia el enlace del producto y añade los detalles que quieres comparar.</p>
+      <label for="product-name">Nombre del producto <span>*</span></label><input id="product-name" name="name" required maxlength="100" placeholder="Ej.: Auriculares inalámbricos XYZ">
+      <div class="form-row"><div><label for="product-price">Precio que ves en Amazon (€)</label><input id="product-price" name="price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Ej.: 79,99"></div><div><label for="product-link">Enlace de Amazon.es</label><input id="product-link" name="url" type="url" placeholder="https://www.amazon.es/dp/…"></div></div>
+      <label for="product-details">Lo que quieres comparar <span class="optional">(opcional)</span></label><textarea id="product-details" name="details" rows="3" maxlength="500" placeholder="Autonomía: 30 h&#10;Con cancelación de ruido: sí&#10;Peso: 250 g"></textarea><p class="field-hint">Una característica por línea: “Característica: valor”. Los datos los introduces tú desde la ficha.</p>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="cancel-button" type="button" data-close-dialog>Cancelar</button><button class="submit-button" type="submit">Añadir producto <span>→</span></button></div>
+    </form>
+  </dialog>
+
+  <template id="product-template">
+    <article class="workspace-card">
+      <div class="workspace-card-top"><span class="card-index"></span><button class="remove-product" type="button" aria-label="Quitar producto">×</button></div>
+      <div class="workspace-product-main"><span class="workspace-product-icon" aria-hidden="true"></span><div class="workspace-product-title"><h3></h3><span class="product-price"></span></div></div>
+      <div class="workspace-details"></div>
+      <a class="open-product" target="_blank" rel="noopener noreferrer" hidden>Ver en Amazon <span>↗</span></a>
+      <button class="edit-product" type="button">Editar detalles <span>↗</span></button>
+    </article>
+  </template>
+</body>
+</html>

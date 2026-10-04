@@ -1,0 +1,37 @@
+name: Publish static site
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    env:
+      SITE_URL: ${{ vars.SITE_URL || 'https://insidecryptonews.github.io/compara-facil' }}
+      PUBLICATION_READY: ${{ vars.PUBLICATION_READY }}
+      LEGAL_NAME: ${{ vars.LEGAL_NAME }}
+      LEGAL_ADDRESS: ${{ vars.LEGAL_ADDRESS }}
+      LEGAL_EMAIL: ${{ vars.LEGAL_EMAIL }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    if: vars.PUBLICATION_READY == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Build static site
+        run: node scripts/build-site.mjs
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
