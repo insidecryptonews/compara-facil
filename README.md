@@ -18,6 +18,8 @@ Abre `http://127.0.0.1:8000/`. El buscador abre Amazon.es; al añadir un product
 node scripts/build-site.mjs https://URL
 ```
 
-El build es `noindex` y queda cerrado a buscadores salvo que se habilite producción. Para un lanzamiento real también hacen falta los datos legales autorizados por el titular y su alta en Afiliados Amazon. El ID se añade a `site-config.js` solo cuando exista.
+El build es `noindex` salvo que se habilite producción. Para desplegarlo públicamente hacen falta los datos legales autorizados por el titular. La afiliación Amazon es opcional: su ID se añade a `site-config.js` solo cuando exista.
+
+La página admite una unidad responsive de AdSense. Está desactivada hasta contar con una cuenta aprobada, IDs de editor/unidad y una CMP certificada configurada. Consulta [MONETIZATION.md](MONETIZATION.md).
 
 La búsqueda automática dentro de la propia web requiere acceso a Amazon Creators API y un backend para custodiar credenciales; ver [MONETIZATION.md](MONETIZATION.md).
